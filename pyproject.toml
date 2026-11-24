@@ -1,0 +1,35 @@
+[project]
+name = "month2-cli-agent"
+version = "0.1.0"
+description = "Month 2 of SNAIL: Claude API client, tool calling and CLI assistant."
+readme = "README.md"
+authors = [
+    { name = "rubengarcianieto", email = "rubengarcianietoempresa@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "httpx>=0.28.1",
+    "pydantic>=2.14.4",
+    "python-dotenv>=1.2.4",
+]
+
+[project.scripts]
+month2-cli-agent = "month2_cli_agent:main"
+
+[build-system]
+requires = ["uv_build>=0.12.19,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "pytest-asyncio>=1.5.0",
+    "ruff>=0.17.6",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
